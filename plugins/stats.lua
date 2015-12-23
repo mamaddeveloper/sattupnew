@@ -72,7 +72,6 @@ local function bot_stats()
   local redis_scan = [[
     local cursor = '0'
     local count = 0
-
     repeat
       local r = redis.call("SCAN", cursor, "MATCH", KEYS[1])
       cursor = r[1]
@@ -91,7 +90,7 @@ local function bot_stats()
   return text
 end
 local function run(msg, matches)
-  if matches[1]:lower() == 'teleseed' then -- Put everything you like :)
+  if matches[1]:lower() == 'satan' then -- Put everything you like :)
     local about = _config.about_text
     local name = user_print_name(msg.from)
     savelog(msg.to.id, name.." ["..msg.from.id.."] used /teleseed ")
@@ -120,7 +119,7 @@ local function run(msg, matches)
         return
       end
     end
-    if matches[2] == "teleseed" then -- Put everything you like :)
+    if matches[2] == "satan" then -- Put everything you like :)
       if not is_admin(msg) then
         return "For admins only !"
       else
@@ -138,11 +137,16 @@ local function run(msg, matches)
 end
 return {
   patterns = {
-    "^[!/]([Ss]tats)$",
-    "^[!/]([Ss]tatslist)$",
-    "^[!/]([Ss]tats) (group) (%d+)",
-    "^[!/]([Ss]tats) (teleseed)",-- Put everything you like :)
-		"^[!/]([Tt]eleseed)"-- Put everything you like :)
+    "^[!/@#$^&8-+=:?]([Ss]tats)$",
+    "^[!/@#$^&8-+=:?]([Ss]tatslist)$",
+    "^[!/@#$^&8-+=:?]([Ss]tats) (group) (%d+)",
+    "^[!/@#$^&8-+=:?]([Ss]tats) (satan)", -- Put everything you like :)
+    "^[!/@#$^&8-+=:?]([Ss]atan)", -- Put everything you like :)
+    "^([Ss]tats)$",
+    "^([Ss]tatslist)$",
+    "^([Ss]tats) (group) (%d+)",
+    "^([Ss]tats) (satan)", -- Put everything you like :)
+    "^([Ss]atan)"
     }, 
   run = run
 }
