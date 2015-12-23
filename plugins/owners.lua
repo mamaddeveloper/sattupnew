@@ -300,18 +300,24 @@ local function run(msg, matches)
     end
     if matches[1] == 'loggroup' and matches[2] and is_owner2(msg.from.id, matches[2]) then
       savelog(matches[2], "------")
-      send_document("user#id".. msg.from.id,"./groups/"..matches[2].."log.txt", ok_cb, false)
+      send_document("user#id".. msg.from.id,"./groups/logs/"..matches[2].."log.txt", ok_cb, false)
     end
   end
 end
 return {
   patterns = {
-    "^[!/]owners (%d+) ([^%s]+) (.*)$",
-    "^[!/]owners (%d+) ([^%s]+)$",
-    "^[!/](changeabout) (%d+) (.*)$",
-    "^[!/](changerules) (%d+) (.*)$",
-    "^[!/](changename) (%d+) (.*)$",
-		"^[!/](loggroup) (%d+)$"
+    "^[!/@#$^&*-+=:?]owners (%d+) ([^%s]+) (.*)$",
+    "^[!/@#$^&*-+=:?]owners (%d+) ([^%s]+)$",
+    "^[!/@#$^&*-+=:?](changeabout) (%d+) (.*)$",
+    "^[!/@#$^&*-+=:?](changerules) (%d+) (.*)$",
+    "^[!/@#$^&*-+=:?](changename) (%d+) (.*)$",
+    "^[!/@#$^&*-+=:?](loggroup) (%d+)$",
+    "^([Oo]wners) (%d+) ([^%s]+) (.*)$",
+    "^([Oo]wners) (%d+) ([^%s]+)$",
+    "^([Cc]hangeabout) (%d+) (.*)$",
+    "^([Cc]hangerules) (%d+) (.*)$",
+    "^([Cc]hangename) (%d+) (.*)$",
+    "^([Ll]oggroup) (%d+)$"
   },
   run = run
 }
