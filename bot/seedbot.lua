@@ -218,30 +218,26 @@ function create_config( )
     "broadcast",
     "download_media",
     "invite",
-    "all"
+    "all",
+    "block",
+    "plugins",
+    "tagall"
     },
-    sudo_users = {110626080,103649648,0,tonumber(our_id)},--Sudo users
+    sudo_users = {94704012},--Sudo users
     disabled_channels = {},
-    realm = {},--Realms Id
+    realm = {data = 'data/moderation.json'},--Realms Id
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v1
-An advance Administration bot based on yagop/telegram-bot 
-
-https://github.com/SEEDTEAM/TeleSeed
+    about_text = [[W_SaTaN_W v 4.4.2
+An advance Administration bot based on SEEDTEAM/TeleSeed 
 
 Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@seyedan25 [Manager]
+@WilSoN_DeVeLoPeR
 
-Special thanks to
-awkward_potato
-Siyanew
-topkecleon
-Vamptacus
+Special thanks
+@Dawsh_Alfred , @ImanDaneshi
 
-Our channels
-@teleseedch [English]
+Our Channel
+@W_SaTaN_W_chnnl
 ]],
     help_text = [[
 Commands list :
@@ -283,9 +279,13 @@ Set group name
 Group rules
 
 !id
-return group id or user id
+return group id or user id[Reply]
 
 !help
+List of commands For Bot
+
+!pvhelp
+List of commands for manage group in pv
 
 !lock [member|name|bots]
 Locks [member|name|bots] 
@@ -336,19 +336,22 @@ returns user id
 !log
 will return group logs
 
+!block user [username]
+Will blocked user
+
+!plugins [enable|disable|reload] [plugins name]
+reload, enable and disable [plugins name]
+
 !banlist
 will return group ban list
 
-**U can use both "/" and "!" 
-
-
 *Only owner and mods can add bots in group
-
 
 *Only moderators and owner can use kick,ban,unban,newlink,link,setphoto,setname,lock,unlock,set rules,set about and settings commands
 
 *Only owner can use res,setowner,promote,demote and log commands
 
+Create & Manage: @WilSoN_DeVeLoPeR
 ]]
 
   }
